@@ -16,4 +16,7 @@ Getting Started
 
 This sample uses the Gradle build system. To build this project, use the
 "gradlew build" command or use "Import Project" in Android Studio.
+<<<<<<< HEAD
 
+=======
+>>>>>>> fac5794efb7dcd1b1847d6b196bda5531ebeec7a
