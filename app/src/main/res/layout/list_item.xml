@@ -15,8 +15,9 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"
-        android:paddingRight="16dp"/>
+        android:src="@drawable/family_daughter"
+        android:paddingRight="16dp"
+        android:id="@+id/imgview"/>
 
     <LinearLayout
         android:layout_width="match_parent"
