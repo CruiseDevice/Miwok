@@ -1,6 +1,8 @@
 package com.example.android.miwok;
 
 import android.app.Activity;
+import android.media.MediaPlayer;
+import android.provider.MediaStore;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,7 @@ public class WordAdapter extends ArrayAdapter<Word>{
 
     private int mColorResourceId;
 
+    MediaPlayer mp;
     public WordAdapter(Activity context, ArrayList<Word> words,int colorResourceId){
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
         // the second argument is used when the ArrayAdapter is populating a single TextView.
@@ -76,6 +79,8 @@ public class WordAdapter extends ArrayAdapter<Word>{
         // Return the whole list item layout (containing 2 TextViews)
         // so that it can be shown in the ListView
         return listItemView;
+
+
 
     }
 }

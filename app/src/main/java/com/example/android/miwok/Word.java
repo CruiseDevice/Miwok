@@ -14,12 +14,15 @@ public class Word {
 
     private int mImageResourceId = NO_IMAGE_PROVIDED;
 
+    private int mToneResourceId;
+
     private static final int NO_IMAGE_PROVIDED = -1;
 
-    public Word(String mDTranslation,String mMTranslation, int mIRID){
+    public Word(String mDTranslation,String mMTranslation, int mIRID, int mTRID){
         mDefaultTranslation = mDTranslation;
         mMiwokTranslation = mMTranslation;
         mImageResourceId = mIRID;
+        mToneResourceId = mTRID;
     }
 
 
@@ -44,5 +47,9 @@ public class Word {
 
     public boolean hasImage(){
         return mImageResourceId != NO_IMAGE_PROVIDED;
+    }
+
+    public int getmToneResourceId(){
+        return mToneResourceId;
     }
 }
