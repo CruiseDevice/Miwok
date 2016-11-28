@@ -52,6 +52,12 @@ public class NumbersActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Word word = words.get(position);
                 mp[0] = MediaPlayer.create(NumbersActivity.this,word.getmToneResourceId());
+                mp[0].setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        Toast.makeText(getApplicationContext(),"audio finised",Toast.LENGTH_SHORT).show();
+                    }
+                });
                 mp[0].start();
             }
         });

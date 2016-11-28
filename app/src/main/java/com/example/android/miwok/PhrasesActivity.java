@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -49,6 +50,13 @@ public class PhrasesActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Word word = words.get(position);
                 mp = MediaPlayer.create(PhrasesActivity.this,word.getmToneResourceId());
+                mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        Toast.makeText(getApplicationContext(),"audio finised",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
                 mp.start();
             }
         });
