@@ -48,16 +48,34 @@ public class FamilyActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Release the media player if it currently exists because we are about to
+                // play a different sound file
+                releaseMediaPlayer();
+
                 Word word = words.get(position);
                 mp = MediaPlayer.create(FamilyActivity.this,word.getmToneResourceId());
                 mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                     @Override
                     public void onCompletion(MediaPlayer mp) {
                         Toast.makeText(getApplicationContext(),"audio finised",Toast.LENGTH_SHORT).show();
+                        // Now that the sound file has finished playing, release the media player resources.
+                        releaseMediaPlayer();
                     }
                 });
                 mp.start();
             }
         });
+    }
+    public void releaseMediaPlayer(){
+        if (mp != null) {
+            // Regardless of the current state of the media player, release its resources
+            // because we no longer need it.
+            mp.release();
+
+            // Set the media player back to null. For our code, we've decided that
+            // setting the media player to null is an easy way to tell that the media player
+            // is not configured to play an audio file at the moment.
+            mp = null;
+        }
     }
 }
